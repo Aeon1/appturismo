@@ -1,0 +1,47 @@
+/*#inicio,#gga,#dda, #a24{text-align: center;}
+#emm li p{text-align: left;}
+#inicio img, #gga img,#dda img,#a24 img,#content img{width: 100%;}
+#inicio a img{width: 31%;margin: 1px;}
+#inicio #fiel{height: 40px;text-align: left;border-top: 1px solid #C0C0C0;border-bottom: 1px solid #C0C0C0;margin-bottom: 10px;display: none;padding: 0 0 0 10px;}
+.atras{background: white;border: 0;}
+#gga .tit,#dda .tit,#a24 .tit{font-weight: 700;color: #638FBE;text-align: center;}
+#gga .tex, #content .tex,#a24 .tex{text-align: justify;color: #5b5b5f;}
+#gga,#dda div[data-role='collapsible'] p{text-align: left;padding: 10px;}
+.azul{height: auto;background: #638FBE;font-size: 20px;font-weight: 700;text-align: center;color: #FFFFFF;padding-top: 13px;padding-bottom: 13px;}
+.verde{height: 37px;background: #A9C57C;font-size: 20px;font-weight: 700;text-align: center;color:#FFFFFF;padding-top: 13px;}
+.mara img{padding: 10px;margin-bottom: 10px;}
+ul li:nth-child(2n){background: white;list-style: none;}
+.slide-panel > div.hidden {
+	display: none;
+}*/
+/*clases*/
+.tit{font-weight: 700;color: #638FBE;text-align: center;}
+.azul{height: auto;background: #638FBE;font-size: 18px;font-weight: 700;text-align: center;color: #FFFFFF;padding-top: 13px;padding-bottom: 13px}
+.verde{height: 37px;background: #A9C57C;font-size: 20px;font-weight: 700;text-align: center;color:#FFFFFF;padding-top: 13px;}
+.listas{background:url(../img/especialidad.png) no-repeat 44%,#E97A61 ;background-size: 135% 97%; text-align: center;color: #FFF;padding: 2px;}
+/*menu y headers*/
+#municipios div[data-role='header']{border: none;text-align: center;background: white;margin: 10px;}
+#municipios div[data-role='header']>h1{background: #6DB8DD;color: #FFFFFF; width: 100%;margin: 0;font-size: 23px;}
+#pagmenu li a{text-align:center;padding: 0px!important;}
+#pagmenu li a h1{margin: 0;padding: 18px 0 18px 0;}
+#pagmenu li a h1>img{position: absolute;left: 10%;top: 5px;}
+div[data-role='header']{background: white;border: none!important;height: 60px;}
+div[data-role='header']>h1{padding: 0!important;}
+div[data-role='header']>h1.ui-title{margin: 4% 30%;}
+div[data-role='header']>h1>img{height: 55px;}
+/*pagina principal*/
+#page div[data-role='content'] a img{/*width: 30%;float: left;position: relative;margin: 5px 5px;*/}
+#page div[data-role='header']>h1.ui-title{margin: 0;}
+.ui-grid-b>div>a>img{width: 95%;}
+.center{text-align: center;}
+
+p,h1,h2,h6{white-space:normal!important;text-shadow: none!important;}
+/*list*/
+#contgas div .ui-collapsible-content{padding:0!important;margin: 0;}
+#contgas div>ul{margin: 0!important;}
+#contgas div>ul>li{list-style: none;}
+/*imagen de seccion*/
+div[data-role='content']>img{width: 100%!important;}
+/*historicos*/
+#descriphis{padding: 0 15px;}
+

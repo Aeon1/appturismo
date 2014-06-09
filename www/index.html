@@ -1,0 +1,269 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="iso-5489-1">
+<title>Aplic. Turismo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="jquery-mobile/jquery.min.css" />
+<link rel="stylesheet" href="jquery-mobile/style.css" />
+    <script src="jquery-mobile/jquery.js"></script>
+	<script src="jquery-mobile/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script src="jquery-mobile/bd.js"></script>
+    
+<style>
+#menu{margin: 0;background: url(img/fondo.png) no-repeat 50% 4%,#292929}
+footer{width: 100%;height:100px;bottom: 0;position: absolute;text-align: center;}
+footer img{bottom: 0;position: relative;}
+footer div{width: 100%;height: 30px;}
+footer div a{text-decoration: none;color: #FFFFFF;}
+</style>
+<script src="js/imageflip.mini.js"></script>
+<style type="text/css">
+#iGallery		{list-style:none; padding:0px; margin:0px}
+#iGallery li	{list-style:none; padding:2px; margin:2px; border:1px solid #999; float:left;width: 29%;}
+#iGallery li a img{width: 100%;}
+
+/* imageflip CSS. Copy & Paste this to your CSS file */
+#imageflippage	{background-color:#000; margin:0px; padding:0px; border:none; height:100%; width:100%}
+#imageflippage .ui-grid-b{background: white;}
+#imageflippage .ui-grid-b a{width: 100%;border: none;}
+#imageflippage .ui-grid-b a.ui-btn-icon-top:after{top: 50%!important;}
+#tadcontent		{padding:0px; margin:0px; position:relative; background:#000; height:100%; width:100%;}
+#imageflipimg	{vertical-align:middle; height:100%; width:100%; z-index:98; background-position:center; background-size:contain; text-align:center; background-repeat:no-repeat }
+#imagefliper	{width:100%; top:45px; bottom:0px; position:absolute; z-index:99}
+#tadnavi		{position:fixed; top:0px; z-index:100; width:100%; opacity:0.7; display:none}
+#tadinfo		{position:fixed; display:none; bottom:0px; width:100%; padding:5px; background-color:#333333; opacity:0.7; color:#FFFFFF; text-align:center; font-size:small; font-family:Verdana, Geneva, sans-serif}
+
+</style>
+<script type="text/javascript">
+$( document ).delegate("#lugares_historicos", "pageinit", function() {
+	$('#iGallery').imageflip()
+})
+</script>
+</head> 
+<body> 
+
+<!--
+<div data-role="page" id="menu" data-theme="d">
+
+	<footer data-role="footer" data-theme="c" data-position="fixed">
+<div><a href="#municipios" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="width: 50%;background: #C72945;margin: 0;font-size: 140%;color: #FFFFFF;">ESPA&Ntilde;OL</h1></a></div>
+<div><a href="#municipios_ingles" data-rel="pop" data-transition="slideup" data-inline="true"><h1 style="float: right;width: 50%;background: #89BD6A;font-size: 140%;margin: 0;color: #FFFFFF;">ENGLISH</h1></a></div>
+<img src="img/logos_pie.png" />
+	</footer>
+</div>
+-->
+
+<div data-role="page" id="municipios" >
+	<div data-role="header" data-theme="c" style="height: 113px;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1>Elige un municipio:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview" id="pagmenu" >    
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('01E','C01');$('#nommun').prop('src','img/ahome/titulo.jpg');"><h1><span>Ahome</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('02E','C02');$('#nommun').prop('src','img/angostura/titulo.jpg');"><h1><span>Angostura</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('03E','C03');$('#nommun').prop('src','img/badiraguato/titulo.jpg');"><h1><span>Badiraguato</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('04E','C04');$('#nommun').prop('src','img/concordia/titulo.jpg');"><h1><span>Concordia</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('05E','C05');$('#nommun').prop('src','img/cosala/titulo.jpg');"><h1><img src="img/pueblo_magico.png"/><span>Cosalá</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('06E','C06');$('#nommun').prop('src','img/culiacan/titulo.jpg');"><h1><span>Culiacán</span></h1></a></li>    
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('07E','C07');$('#nommun').prop('src','img/choix/titulo.jpg');"><h1><span>Choix</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('08E','C08');$('#nommun').prop('src','img/elota/titulo.jpg');"><h1><span>Elota</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('09E','C09');$('#nommun').prop('src','img/escuinapa/titulo.jpg');"><h1><span>Escuinapa</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('10E','C10');$('#nommun').prop('src','img/el_fuerte/titulo.jpg');"><h1><img src="img/pueblo_magico.png"/><span>El Fuerte</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('11E','C11');$('#nommun').prop('src','img/guasave/titulo.jpg');"><h1><span>Guasave</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('12E','C12');$('#nommun').prop('src','img/mazatlan/titulo.jpg');"><h1><span>Mazatlán</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('13E','C13');$('#nommun').prop('src','img/mocorito/titulo.jpg');"><h1><span>Mocorito</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('14E','C14');$('#nommun').prop('src','img/el_rosario/titulo.jpg');"><h1><img src="img/pueblo_magico.png"/><span>Rosario</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('15E','C15');$('#nommun').prop('src','img/salvador_alvarado/titulo.jpg');"><h1><span>Salvador Alvarado</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('16E','C16');$('#nommun').prop('src','img/san_ignacio/titulo.jpg');"><h1><span>San Ignacio</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('17E','C17');$('#nommun').prop('src','img/sinaloa_de_leyva/titulo.jpg');"><h1><span>Sinaloa</span></h1></a></li>
+    <li><a data-transition="pop" onclick="$.mobile.navigate('#page',{transition:'slide'});loadclave('18E','C18');$('#nommun').prop('src','img/navolato/titulo.jpg');"><h1><span>Navolato</span></h1></a></li>
+</ul>
+	</div>
+</div>
+<!--
+<div data-role="page" id="municipios_ingles" >
+	<div data-role="header" data-theme="c" style="text-align: center;">
+    <img src="img/encabezado.png" height="80"/>
+		<h1 style="background: #6DB8DD;color: #FFFFFF;">Choose a city:</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('01I','C01');$('#nommun').prop('src','img/ahome/');"><h1 style="margin: 20px;"><span style="top: -3px;margin-left: 10px;position: relative;">Ahome</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('05I','C05');$('#nommun').prop('src','img/cosala/');"><h1><img src="img/pueblo_magico.png" style="position: relative;"/><span style="top: -10px;margin-left: 10px;position: relative;">Cosalá</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('06I','C06');$('#nommun').prop('src','img/culiacan/');"><h1 style="margin: 20px;"><span style="top: -3px;margin-left: 10px;position: relative;">Culiacán</span></h1></a></li>    
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('07I','C07');$('#nommun').prop('src','img/choix/');"><h1 style="margin: 20px;"><span style="top: -3px;margin-left: 10px;position: relative;">Choix</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('11I','C11');$('#nommun').prop('src','img/guasave/');"><h1 style="margin: 20px;"><span style="top: -3px;margin-left: 10px;position: relative;">Guasave</span></h1></a></li>
+    <li><a data-transition="pop" style="text-align:center;padding: 0px!important;" onclick="$.mobile.navigate( '#page',{transition : 'slide'} );loadclave('12I','C12');$('#nommun').prop('src','img/mazatlan/mazatlan_titulo.jpg');"><h1 style="margin: 20px;"><span style="top: -3px;margin-left: 10px;position: relative;">Mazatlán</span></h1></a></li>
+    
+    </ul>
+	</div>
+</div>
+-->
+
+<!-- cuerpo -->
+<div data-role="page" id="page">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a class="atras" data-transition="pop" data-inline="true" onclick="back();"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1><img id="nommun" /></h1>
+        	</div>
+	<div data-role="content" id="inicio">
+    <img id="imgprincipal" />
+    <fieldset id="fiel"><legend>Tiempo</legend></fieldset>
+    <div class="ui-grid-b center">
+    <div class="ui-block-a"><a data-inline="true" onclick="$.mobile.navigate( '#gastronomia',{transition : 'flip'} );loadgastronomia();"><img src="img/gastronomia.png" /></a></div>
+    <div class="ui-block-b"><a data-inline="true" onclick="$.mobile.navigate( '#diversion',{transition : 'flip'} );loaddiversion();"><img src="img/dirversion.png" /></a></div>
+    <div class="ui-block-c"><a data-inline="true" onclick="$.mobile.navigate( '#lugares_historicos',{transition : 'flip'} );loadhis();"><img src="img/lugares_historicos.png" /></a></div>
+    </div>
+    <div class="ui-grid-b center">
+    <!--
+<div class="ui-block-a"><a href="javascript:document.location.href ='mapa.html?valor='+clave;" rel="external" data-inline="true"><img src="img/mapa.png" /></a></div>
+-->
+    <div class="ui-block-a"><a data-inline="true" onclick="$.mobile.navigate( '#mapa',{transition : 'flip'} );mapa()"><img src="img/mapa.png" /></a></div>
+    <div class="ui-block-b"><a data-inline="true" onclick="$.mobile.navigate( '#actividades_24_horas',{transition : 'flip'} );loadundia()"><img src="img/act_24_horas.png" /></a></div>
+    <div class="ui-block-c"><a data-inline="true" onclick="$.mobile.navigate( '#emergencias',{transition : 'flip'});loademergencia()"><img src="img/emergencias.png" /></a></div>
+    </div>
+		
+        
+        
+        
+        
+        
+        </div>	
+	</div>
+
+<!-- gastronomia -->
+<!-- falta la imagen principal de seccion -->
+<div data-role="page" id="gastronomia">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Gastronom&iacute;a</h1>
+      </div>
+	<div data-role="content" id="gga">
+    <hr />	
+    <img id="imggastronomia"/>
+    <p class="tit">Platillos t&iacute;picos</p>
+    <p class="tex" id="desgas"></p> 
+    <p class="azul">Restaurantes y especialidades</p>
+    <div id="contgas" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+    </div>
+    </div>
+</div>
+
+<!-- diversion -->
+<div data-role="page" id="diversion">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Diversi&oacute;n</h1>
+        </div>
+	<div data-role="content" id="dda">
+    <hr />	
+	<img id="imgdiversion"/>
+	<p class="verde">Actividades</p>
+    <div id="contdiv" data-role="collapsible-set" data-corners="false" data-theme="c" data-content-theme="d" ></div>
+	</div>
+	
+</div>
+
+<!-- lugares historicos -->
+<div data-role="page" id="lugares_historicos">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Lugares Hist&oacute;ricos</h1>
+        </div>
+	<div data-role="content" id="content">
+    <hr /> 	
+	<img id="imgprinhis" />	
+    <p class="tex" id='descriphis'></p>	
+
+		<div class="content-primary">	
+		<ul id="iGallery">		
+		</ul>
+		</div>
+	</div>
+</div>
+
+<!-- actividades en 24 horas -->
+<div data-role="page" id="actividades_24_horas">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Actividades en 24 Hrs</h1>
+      </div>
+	<div data-role="content" id="a24">
+    <hr />	
+    <img id="imgprincipal24"/>
+	<hr />	<!--
+<p class="tex" id="descripcion24"></p>	
+-->	
+	<ul data-role="listview" id="contund"></ul>
+    </div><!--
+<a data-inline="true" onclick="$.mobile.navigate('#one_day',{transition : 'flip'});">
+-->
+    <div data-role="footer" data-theme="d">
+    <h2 id="nomper"></h2>
+    </div>
+    <!--
+ </a> 
+-->  
+	
+</div>
+<div data-role="page" id="one_day">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#actividades_24_horas" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Actividades en 24 Hrs</h1>
+       </div>
+	<div data-role="content">
+    <ul data-role="listview" id="contund"></ul>
+    </div> 	
+</div>
+<!-- emergencias -->
+<div data-role="page" id="emergencias">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Emergencias</h1>
+       </div>
+	<div data-role="content" id="eem" class="mara"><ul id="conteme" data-role="listview" ></ul></div>
+</div>
+
+<!-- mapa -->
+<style>
+#content {
+    padding: 0;
+    position : absolute !important; 
+    top : 40px !important;  
+    right : 0; 
+    bottom : 40px !important;  
+    left : 0 !important;         
+}
+</style>
+<div data-role="page" id="mapa">
+	<div data-role="header" data-position="fixed" data-theme="c">
+    <a href="#page" class="atras" data-transition="pop" data-inline="true"><img src="img/back.png" alt="Atras" class="ui-li-icon"/></a>
+		<h1>Mapa</h1>
+        
+    </div>
+	<div data-role="content" id="content">
+    <div class="result"></div>
+    <div id="map_canvas" style="height: 100%;"></div>
+    </div>
+    
+    <div data-role="footer" style="overflow:hidden;" data-position="fixed">
+    <h4 style="text-align:center;">Lugares</h4>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#" onclick="actividades()">Actividades</a></li>
+            <li><a href="#" onclick="historicos()">Historicos</a></li>
+            <li><a href="#" onclick="restaurantes()">Restaurantes</a></li>
+            <li><a href="#" onclick="emergencias()">Emergencias</a></li>
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<!-- fin del cuerpo -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script src="jquery-mobile/mapa.js"></script>
+  
+</body>
+</html>
