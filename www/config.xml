@@ -7,6 +7,7 @@
     <author email="joel.r@live.com.mx" href="">
         Joel Rivera
     </author>
+     <preference name="phonegap-version"       value="4.2.0" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
